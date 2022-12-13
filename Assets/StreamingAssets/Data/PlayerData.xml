@@ -1,0 +1,16 @@
+<xml>
+  <stats level="4" experience="140" gold="0" />
+  <map positionX="117,7939" positionY="0,04115236" positionZ="91,41717" />
+  <equipment>
+    <item type="cuirass" name="vanguardCuirass" set="vanguard" />
+    <item type="greaves" name="roninGreaves" set="ronin" />
+    <item type="weaponRight" name="vanguardMace" set="vanguard" />
+    <item type="weaponLeft" name="roninBlade" set="ronin" />
+    <item type="shirt" name="none" set="none" />
+    <item type="boots" name="roninBoots" set="ronin" />
+    <item type="bracers" name="barbarianBracers" set="barbarian" />
+    <item type="shoulderPads" name="barbarianShoulderPads" set="barbarian" />
+    <item type="helmet" name="none" set="none" />
+  </equipment>
+  <currentFight enemy="Mutineer" />
+</xml>

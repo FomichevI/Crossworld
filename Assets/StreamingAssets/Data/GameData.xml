@@ -1,0 +1,18 @@
+<xml>
+	<experiencePerLevel>
+		<level1 value="40"/>
+		<level2 value="70"/>
+		<level3 value="100"/>
+		<level4 value="200"/>
+		<level5 value="6666"/>
+	</experiencePerLevel>
+	
+	<locations>
+		<Village>
+			<enemies>
+				<simple name="Mutineer" count="4"/>
+				<middle name="Barbarian" count="2"/>
+			</enemies>
+		</Village>
+	</locations>
+</xml>

@@ -1,0 +1,37 @@
+<xml>
+  <equipment>
+    <item name="roninHelmet" type="helmet" set="ronin" />
+    <item name="vanguardBracers" type="bracers" set="vanguard" />
+    <item name="barbarianHelmet" type="helmet" set="barbarian" />
+    <item name="roninBracers" type="bracers" set="ronin" />
+    <item name="vanguardGreaves" type="greaves" set="vanguard" />
+    <item name="vanguardHelmet" type="helmet" set="vanguard" />
+    <item name="vanguardShild" type="weaponLeft" set="vanguard" />
+    <item name="roninCuirass" type="cuirass" set="ronin" />
+    <item name="barbarianShirt" type="shirt" set="barbarian" />
+    <item name="barbarianShirt" type="shirt" set="barbarian" />
+    <item name="barbarianShoulderPads" type="shoulderPads" set="barbarian" />
+    <item name="barbarianHelmet" type="helmet" set="barbarian" />
+    <item name="barbarianCuirass" type="cuirass" set="barbarian" />
+    <item name="barbarianCuirass" type="cuirass" set="barbarian" />
+    <item name="roninShirt" type="shirt" set="ronin" />
+    <item name="roninCuirass" type="cuirass" set="ronin" />
+    <item name="roninShoulderPads" type="shoulderPads" set="ronin" />
+    <item name="barbarianCuirass" type="cuirass" set="barbarian" />
+    <item name="vanguardShoulderPads" type="shoulderPads" set="vanguard" />
+    <item name="vanguardShirt" type="shirt" set="vanguard" />
+    <item name="barbarianCuirass" type="cuirass" set="barbarian" />
+    <item name="simpleShild" type="weaponLeft" set="simple" />
+    <item name="barbarianBoots" type="boots" set="barbarian" />
+    <item name="barbarianAxe" type="weaponRight" set="barbarian" />
+    <item name="barbarianAxe" type="weaponRight" set="barbarian" />
+    <item name="simpleSword" type="weaponRight" set="simple" />
+    <item name="barbarianGreaves" type="greaves" set="barbarian" />
+    <item name="barbarianAxe" type="weaponRight" set="barbarian" />
+    <item name="vanguardBoots" type="boots" set="vanguard" />
+    <item name="barbarianCuirass" type="cuirass" set="barbarian" />
+    <item name="barbarianAxe" type="weaponRight" set="barbarian" />
+    <item name="roninSword" type="weaponRight" set="ronin" />
+    <item name="barbarianGreaves" type="greaves" set="barbarian" />
+  </equipment>
+</xml>

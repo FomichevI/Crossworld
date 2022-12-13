@@ -1,0 +1,10 @@
+<xml>
+	<Mutineer>
+		<stats type="simple" level="2" agility="10" parry="30" rage="30" hitPoints="120" defense="50" penetration="50" minDamage="13" maxDamage="20"/>
+		<dropList itemLevel ="1-5" rare="unusual" chance="70" gold ="0,5" experience="10"/>
+	</Mutineer>
+	<Barbarian>
+		<stats type="middle" level="4" agility="30" parry="30" rage="130" hitPoints="230" defense="100" penetration="200" minDamage="18" maxDamage="30"/>
+		<dropList itemLevel ="1-5" rare="rare" chance="70" gold ="1,5" experience="30"/>
+	</Barbarian>
+</xml>

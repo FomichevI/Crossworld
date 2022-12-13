@@ -1,0 +1,56 @@
+<xml>
+	<characteristics>
+		<level tc="Уровень" />
+		<strength tc="Сила" />
+		<agility tc="Ловкость" />
+		<parry tc="Парирование" />
+		<rage tc="Ярость" />
+		<survivability tc="Живучесть" />
+		<defense tc="Защита" />
+		<penetration tc="Пробивание" />
+		<damage tc="Урон" />
+		<minDamage tc="Мин. урон" />
+		<maxDamage tc="Макс. урон" />
+		<hitPoints tc="Здоровье" />
+	</characteristics>
+	<equipment>
+		<sets>
+			<simple>
+				<simpleSword  tc="Простой меч"/>
+				<simpleShild  tc="Простой щит"/>
+			</simple>
+			<ronin>
+				<roninCuirass  tc="Нагрудник ронина"/>
+				<roninGreaves  tc="Поножи ронина"/>
+				<roninSword  tc="Меч ронина"/>
+				<roninBlade  tc="Клинок ронина"/>
+				<roninBoots  tc="Сапоги ронина"/>
+				<roninShirt  tc="Рубашка ронина"/>
+				<roninBracers  tc="Наручи ронина"/>
+				<roninShoulderPads  tc="Наплечники ронина"/>
+				<roninHelmet  tc="Шлем ронина"/>
+			</ronin>
+			<barbarian>
+				<barbarianCuirass  tc="Обмотки варвара"/>
+				<barbarianGreaves  tc="Поножи варвара"/>
+				<barbarianAxe  tc="Секира варвара"/>
+				<barbarianBoots  tc="Сапоги варвара"/>
+				<barbarianShirt  tc="Тату варвара"/>
+				<barbarianBracers  tc="Наручи варвара"/>
+				<barbarianShoulderPads  tc="Наплечники варвара"/>
+				<barbarianHelmet  tc="Шлем варвара"/>
+			</barbarian>
+			<vanguard>
+				<vanguardCuirass  tc="Нагрудник авангарда"/>
+				<vanguardGreaves  tc="Поножи авангарда"/>
+				<vanguardMace  tc="Булава авангарда"/>
+				<vanguardShild  tc="Щит авангарда"/>
+				<vanguardBoots  tc="Сапоги авангарда"/>
+				<vanguardShirt  tc="Кольчуга авангарда"/>
+				<vanguardBracers  tc="Наручи авангарда"/>
+				<vanguardShoulderPads  tc="Наплечники авангарда"/>
+				<vanguardHelmet  tc="Шлем авангарда"/>
+			</vanguard>		
+	</sets>
+	</equipment>
+</xml>

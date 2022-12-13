@@ -1,0 +1,43 @@
+<xml>
+	<sets>
+		<simple>
+			<item name="simpleSword" type="weaponRight" rare="usual" level="1" set="simple" strength="0" agility="2" parry="2" rage="2" survivability="0" defense="0" penetration="10" minDamage="10" maxDamage="15" class="oneHanded"/>
+			<item name="simpleShild" type="weaponLeft" rare="usual" level="1" set="simple" strength="0" agility="2" parry="2" rage="2" survivability="0" defense="10" penetration="0" class="shild"/>
+		</simple>
+		<ronin>
+			<item name="roninCuirass" type="cuirass" rare="rare" level="1" set="ronin" strength="12" agility="12" parry="0" rage="0" survivability="15" defense="16" penetration="18"/>
+			<item name="roninGreaves" type="greaves" rare="rare" level="1" set="ronin" strength="11" agility="10" parry="0" rage="0" survivability="20" defense="18" penetration="16"/>
+			<item name="roninSword" type="weaponRight" rare="rare" level="2" set="ronin" strength="18" agility="12" parry="0" rage="0" survivability="13" defense="11" penetration="21" minDamage="10" maxDamage="12" class="oneHanded"/>
+			<item name="roninBlade" type="weaponLeft" rare="rare" level="2" set="ronin" strength="13" agility="6" parry="2" rage="0" survivability="8" defense="21" penetration="11" minDamage="10" maxDamage="12" class="oneHanded"/>
+			<item name="roninBoots" type="boots" rare="rare" level="3" set="ronin" strength="8" agility="10" parry="0" rage="0" survivability="12" defense="17" penetration="17"/>
+			<item name="roninShirt" type="shirt" rare="rare" level="3" set="ronin" strength="8" agility="10" parry="0" rage="0" survivability="12" defense="17" penetration="17"/>
+			<item name="roninBracers" type="bracers" rare="rare" level="4" set="ronin" strength="9" agility="12" parry="0" rage="0" survivability="17" defense="21" penetration="21"/>
+			<item name="roninShoulderPads" type="shoulderPads" rare="rare" level="4" set="ronin" strength="11" agility="10" parry="0" rage="0" survivability="15" defense="21" penetration="21"/>
+			<item name="roninHelmet" type="helmet" rare="rare" level="5" set="ronin" strength="25" agility="34" parry="4" rage="0" survivability="27" defense="33" penetration="33" class="helf"/>
+			<setBonus defense="50" penetration="50"/>
+		</ronin>
+		<barbarian>
+			<item name="barbarianCuirass" type="cuirass" rare="unusual" level="1" set="barbarian" strength="17" agility="0" parry="0" rage="8" survivability="6" defense="10" penetration="10"/>
+			<item name="barbarianGreaves" type="greaves" rare="unusual" level="1" set="barbarian" strength="13" agility="0" parry="0" rage="10" survivability="10" defense="10" penetration="10"/>
+			<item name="barbarianAxe" type="weaponRight" rare="unusual" level="2" set="barbarian" strength="20" agility="0" parry="0" rage="8" survivability="2" defense="3" penetration="20" minDamage="15" maxDamage="25" class="twoHanded"/>
+			<item name="barbarianBoots" type="boots" rare="unusual" level="3" set="barbarian" strength="12" agility="0" parry="0" rage="8" survivability="7" defense="10" penetration="6"/>
+			<item name="barbarianShirt" type="shirt" rare="unusual" level="3" set="barbarian" strength="14" agility="0" parry="0" rage="6" survivability="6" defense="11" penetration="6"/>
+			<item name="barbarianBracers" type="bracers" rare="unusual" level="4" set="barbarian" strength="16" agility="0" parry="0" rage="10" survivability="6" defense="10" penetration="7"/>
+			<item name="barbarianShoulderPads" type="shoulderPads" rare="unusual" level="4" set="barbarian" strength="16" agility="0" parry="0" rage="8" survivability="6" defense="9" penetration="7"/>
+			<item name="barbarianHelmet" type="helmet" rare="unusual" level="5" set="barbarian" strength="33" agility="0" parry="0" rage="18" survivability="14" defense="10" penetration="18" class="helf"/>
+			<setBonus penetration="100"/>
+		</barbarian>
+		<vanguard>
+			<item name="vanguardCuirass" type="cuirass" rare="rare" level="1" set="vanguard" strength="6" agility="0" parry="12" rage="0" survivability="26" defense="23" penetration="15"/>
+			<item name="vanguardGreaves" type="greaves" rare="rare" level="1" set="vanguard" strength="6" agility="0" parry="12" rage="0" survivability="29" defense="23" penetration="15"/>
+			<item name="vanguardMace" type="weaponRight" rare="rare" level="2" set="vanguard" strength="9" agility="0" parry="4" rage="3" survivability="8" defense="15" penetration="18" minDamage="15" maxDamage="17" class="oneHanded"/>
+			<item name="vanguardShild" type="weaponLeft" rare="rare" level="2" set="vanguard" strength="4" agility="0" parry="10" rage="0" survivability="60" defense="29" penetration="4" class="shild"/>
+			<item name="vanguardBoots" type="boots" rare="rare" level="3" set="vanguard" strength="4" agility="0" parry="6" rage="0" survivability="17" defense="17" penetration="13"/>
+			<item name="vanguardShirt" type="shirt" rare="rare" level="3" set="vanguard" strength="4" agility="0" parry="7" rage="0" survivability="16" defense="19" penetration="12"/>
+			<item name="vanguardBracers" type="bracers" rare="rare" level="4" set="vanguard" strength="5" agility="0" parry="5" rage="0" survivability="20" defense="27" penetration="10"/>
+			<item name="vanguardShoulderPads" type="shoulderPads" rare="rare" level="4" set="vanguard" strength="5" agility="0" parry="5" rage="0" survivability="15" defense="24" penetration="10"/>
+			<item name="vanguardHelmet" type="helmet" rare="rare" level="5" set="vanguard" strength="12" agility="0" parry="14" rage="5" survivability="48" defense="48" penetration="28" class="full"/>
+			<setBonus defense="100"/>
+		</vanguard>
+	</sets>
+</xml>
