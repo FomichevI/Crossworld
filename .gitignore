@@ -1,0 +1,8 @@
+/*
+/*/
+!/.gitignore
+!/Assets
+/Assets/*
+!/Assets/_Scripts/
+/Assets/_Scripts/*.meta
+!/Assets/StreamingAssets/Data/
