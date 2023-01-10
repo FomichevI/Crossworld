@@ -14,7 +14,7 @@ public class LanguageDataLoader : MonoBehaviour
         _path = Application.dataPath + "/StreamingAssets/Data/RuLanguage.xml";
     }
 
-    public string GetCharacteristic(string title) //Возвращает переведенное название конкретной характеристики
+    public string GetCharacteristic(string title) //Р’РѕР·РІСЂР°С‰Р°РµС‚ РїРµСЂРµРІРµРґРµРЅРЅРѕРµ РЅР°Р·РІР°РЅРёРµ РєРѕРЅРєСЂРµС‚РЅРѕР№ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё
     {
         _languageXml = new XmlDocument();
         _languageXml.Load(_path);
@@ -23,7 +23,7 @@ public class LanguageDataLoader : MonoBehaviour
         XmlNode currentCharNode = characteristicsNode.SelectSingleNode(title);
         return currentCharNode.Attributes["tc"].Value;
     }
-    public string GetEquipment(string set, string title) //Возвращает переведенное название снаряжения
+    public string GetEquipment(string set, string title) //Р’РѕР·РІСЂР°С‰Р°РµС‚ РїРµСЂРµРІРµРґРµРЅРЅРѕРµ РЅР°Р·РІР°РЅРёРµ СЃРЅР°СЂСЏР¶РµРЅРёСЏ
     {
         _languageXml = new XmlDocument();
         _languageXml.Load(_path);

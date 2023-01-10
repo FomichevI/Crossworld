@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class MobSpawner : MonoBehaviour
 {
-    [SerializeField] private Transform[] _positions; //Точки спавна мобов
-    [SerializeField] private float _offsetPlayer = 10f; //Минимально расстояние, на котором должен находиться моб от персонажа при спавне
-    private string[] _enemiesList; //Список мобов (каждый дубликат конкретного моба имеет свою ячейку)
+    [SerializeField] private Transform[] _positions; //РўРѕС‡РєРё СЃРїР°РІРЅР° РјРѕР±РѕРІ
+    [SerializeField] private float _offsetPlayer = 10f; //РњРёРЅРёРјР°Р»СЊРЅРѕ СЂР°СЃСЃС‚РѕСЏРЅРёРµ, РЅР° РєРѕС‚РѕСЂРѕРј РґРѕР»Р¶РµРЅ РЅР°С…РѕРґРёС‚СЊСЃСЏ РјРѕР± РѕС‚ РїРµСЂСЃРѕРЅР°Р¶Р° РїСЂРё СЃРїР°РІРЅРµ
+    private string[] _enemiesList; //РЎРїРёСЃРѕРє РјРѕР±РѕРІ (РєР°Р¶РґС‹Р№ РґСѓР±Р»РёРєР°С‚ РєРѕРЅРєСЂРµС‚РЅРѕРіРѕ РјРѕР±Р° РёРјРµРµС‚ СЃРІРѕСЋ СЏС‡РµР№РєСѓ)
     private GameObject _currentMob;
 
     public void SetEnemiesList(string location)
@@ -19,7 +19,7 @@ public class MobSpawner : MonoBehaviour
         GameDataLoader.S.GetEnemyByType(location, "middle", out middleName, out middleCount);
         GameDataLoader.S.GetEnemyByType(location, "hard", out hardName, out hardCount);
         _enemiesList = new string[simpleCount + middleCount + hardCount];
-        for (int i = 0; i< _enemiesList.Length; i++) //Поочередно добавляем всех мобов в список
+        for (int i = 0; i< _enemiesList.Length; i++) //РџРѕРѕС‡РµСЂРµРґРЅРѕ РґРѕР±Р°РІР»СЏРµРј РІСЃРµС… РјРѕР±РѕРІ РІ СЃРїРёСЃРѕРє
         {
             if(simpleCount>0)
             {
@@ -42,7 +42,7 @@ public class MobSpawner : MonoBehaviour
     {
         {
             System.Random rand = new System.Random();
-            //Рандомная сортировка позиций
+            //Р Р°РЅРґРѕРјРЅР°СЏ СЃРѕСЂС‚РёСЂРѕРІРєР° РїРѕР·РёС†РёР№
             for (int i = _positions.Length - 1; i >= 1; i--) 
             {
                 int j = rand.Next(i + 1);
@@ -52,20 +52,20 @@ public class MobSpawner : MonoBehaviour
                 _positions[i] = t;
             }
         }
-        //Непосресдственный спавн мобов
+        //РќРµРїРѕСЃСЂРµСЃРґСЃС‚РІРµРЅРЅС‹Р№ СЃРїР°РІРЅ РјРѕР±РѕРІ
         string lastMobName = "";
         int k = 0;
         for (int i = 0; i < _enemiesList.Length; i++)
         {
             if (k < _positions.Length)
             {
-                if (lastMobName != _enemiesList[i]) //Проверка для того, чтобы лишний раз не грузить ресурсы
+                if (lastMobName != _enemiesList[i]) //РџСЂРѕРІРµСЂРєР° РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ Р»РёС€РЅРёР№ СЂР°Р· РЅРµ РіСЂСѓР·РёС‚СЊ СЂРµСЃСѓСЂСЃС‹
                 {
                     lastMobName = _enemiesList[i];
                     if (lastMobName == "") break;
                     _currentMob = Resources.Load<GameObject>("Prefabs/Enemies/OnMap/" + lastMobName);
                 }
-                if ((_positions[k].position - LocationController.S.PlayerPosition.position).magnitude > _offsetPlayer) //Создаем экземпляр моба
+                if ((_positions[k].position - LocationController.S.PlayerPosition.position).magnitude > _offsetPlayer) //РЎРѕР·РґР°РµРј СЌРєР·РµРјРїР»СЏСЂ РјРѕР±Р°
                 {
                     GameObject mob = Instantiate<GameObject>(_currentMob, _positions[k].position, _positions[k].rotation);
                     mob.name = lastMobName;

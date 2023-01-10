@@ -18,13 +18,13 @@ public class LoadingScene : MonoBehaviour
 
     IEnumerator DisplayLoadingScreen(int level)
     {
-        ProgressText.text = "Çàãðóçêà... " + _loadProgress + "%";
+        ProgressText.text = "Ð—Ð°Ð³Ñ€ÑƒÐ·ÐºÐ°... " + _loadProgress + "%";
 
         AsyncOperation async = SceneManager.LoadSceneAsync(level);
         while (!async.isDone)
         {
             _loadProgress = (int)(async.progress * 100);
-            ProgressText.text = "Çàãðóçêà... " + _loadProgress + "%";
+            ProgressText.text = "Ð—Ð°Ð³Ñ€ÑƒÐ·ÐºÐ°... " + _loadProgress + "%";
             ProgressBar.fillAmount = async.progress;
             yield return null;
         }

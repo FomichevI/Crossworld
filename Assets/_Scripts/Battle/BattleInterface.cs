@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class BattleInterface : MonoBehaviour
 {
     public static BattleInterface S;
-    //***********Временно, пока скилы игрока еще в разработке***********
+    //***********Р’СЂРµРјРµРЅРЅРѕ, РїРѕРєР° СЃРєРёР»С‹ РёРіСЂРѕРєР° РµС‰Рµ РІ СЂР°Р·СЂР°Р±РѕС‚РєРµ***********
     public Button[] SkillButtons;
     public Image[] SkillFrames;
 
@@ -42,12 +42,12 @@ public class BattleInterface : MonoBehaviour
     {
         _hitDirectionsButtons.SetActive(true);
     }
-    public void RefreshHitBars() //Для первого обновления хитбаров
+    public void RefreshHitBars() //Р”Р»СЏ РїРµСЂРІРѕРіРѕ РѕР±РЅРѕРІР»РµРЅРёСЏ С…РёС‚Р±Р°СЂРѕРІ
     {
         _enemyBar.RefreshHpBar(_battleData.Enemy.Characteristics.MaxHp);
         _playerBar.RefreshHpBar(_battleData.Player.Characteristics.MaxHp);
     }
-    public void RefreshHitBars(int damage, bool forPlayer) //Отобразить новое состояние здоровья на хитбарах
+    public void RefreshHitBars(int damage, bool forPlayer) //РћС‚РѕР±СЂР°Р·РёС‚СЊ РЅРѕРІРѕРµ СЃРѕСЃС‚РѕСЏРЅРёРµ Р·РґРѕСЂРѕРІСЊСЏ РЅР° С…РёС‚Р±Р°СЂР°С…
     {
         if (_battleData.TypeOfCurrentHit != TypeOfHit.miss)
         {
@@ -96,7 +96,7 @@ public class BattleInterface : MonoBehaviour
         }
     }
 
-    //Методы для кнопок удара (использует только игрок)
+    //РњРµС‚РѕРґС‹ РґР»СЏ РєРЅРѕРїРѕРє СѓРґР°СЂР° (РёСЃРїРѕР»СЊР·СѓРµС‚ С‚РѕР»СЊРєРѕ РёРіСЂРѕРє)
     public void MakeHitUp()
     {
         BattleController.MakeHitPlayer?.Invoke(HitDirection.up);
@@ -129,7 +129,7 @@ public class BattleInterface : MonoBehaviour
             }
         }
     }
-    private void RefreshFilledCombo() //Обновить цвет комбо иконок
+    private void RefreshFilledCombo() //РћР±РЅРѕРІРёС‚СЊ С†РІРµС‚ РєРѕРјР±Рѕ РёРєРѕРЅРѕРє
     {
         int currentValue = _battleData.FilledCombo;
         for (int i = 0; i < 7; i++)

@@ -5,9 +5,9 @@ public class BattleData : ScriptableObject
 {
     public BattleCharacter Player;
     public BattleMob Enemy;
-    public HitDirection[] KomboHits; //Комбинация персонажа
-    public int FilledCombo; //Текущее заполнение комбинации
-    public float PenetrationMultiplier; //Множитель урона за счет пробивания
-    public TypeOfHit TypeOfCurrentHit; //Состояние текущего удара (крит, блок или уворот)    
-    public Loot Loot = null; //Награда при окончании боя
+    public HitDirection[] KomboHits; //РљРѕРјР±РёРЅР°С†РёСЏ РїРµСЂСЃРѕРЅР°Р¶Р°
+    public int FilledCombo; //РўРµРєСѓС‰РµРµ Р·Р°РїРѕР»РЅРµРЅРёРµ РєРѕРјР±РёРЅР°С†РёРё
+    public float PenetrationMultiplier; //РњРЅРѕР¶РёС‚РµР»СЊ СѓСЂРѕРЅР° Р·Р° СЃС‡РµС‚ РїСЂРѕР±РёРІР°РЅРёСЏ
+    public TypeOfHit TypeOfCurrentHit; //РЎРѕСЃС‚РѕСЏРЅРёРµ С‚РµРєСѓС‰РµРіРѕ СѓРґР°СЂР° (РєСЂРёС‚, Р±Р»РѕРє РёР»Рё СѓРІРѕСЂРѕС‚)    
+    public Loot Loot = null; //РќР°РіСЂР°РґР° РїСЂРё РѕРєРѕРЅС‡Р°РЅРёРё Р±РѕСЏ
 }

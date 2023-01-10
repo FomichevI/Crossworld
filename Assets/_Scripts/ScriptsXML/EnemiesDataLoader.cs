@@ -32,7 +32,7 @@ public class EnemiesDataLoader : MonoBehaviour
         XmlNode statsNode = enemyNode.SelectSingleNode("stats");
         return int.Parse(statsNode.Attributes["type"].Value);
     }
-    public int GetDropChance(string name) //Возвращает шанс дропа одной вещи
+    public int GetDropChance(string name) //Р’РѕР·РІСЂР°С‰Р°РµС‚ С€Р°РЅСЃ РґСЂРѕРїР° РѕРґРЅРѕР№ РІРµС‰Рё
     {
         _enemyDataXml = new XmlDocument();
         _enemyDataXml.Load(_path);
@@ -41,7 +41,7 @@ public class EnemiesDataLoader : MonoBehaviour
         XmlNode dropListNode = enemyNode.SelectSingleNode("dropList");
         return int.Parse(dropListNode.Attributes["chance"].Value);
     }
-    public float GetDropGold(string name) //Возвращает количество золота, которое дропает моб
+    public float GetDropGold(string name) //Р’РѕР·РІСЂР°С‰Р°РµС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ Р·РѕР»РѕС‚Р°, РєРѕС‚РѕСЂРѕРµ РґСЂРѕРїР°РµС‚ РјРѕР±
     {
         _enemyDataXml = new XmlDocument();
         _enemyDataXml.Load(_path);
@@ -53,7 +53,7 @@ public class EnemiesDataLoader : MonoBehaviour
         ci.NumberFormat.CurrencyDecimalSeparator = ",";
         return float.Parse(dropListNode.Attributes["gold"].Value, System.Globalization.NumberStyles.Any, ci);
     }
-    public int GetExperience(string name) //Возвращает количество опыта, получаемое при победе над мобом
+    public int GetExperience(string name) //Р’РѕР·РІСЂР°С‰Р°РµС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ РѕРїС‹С‚Р°, РїРѕР»СѓС‡Р°РµРјРѕРµ РїСЂРё РїРѕР±РµРґРµ РЅР°Рґ РјРѕР±РѕРј
     {
         _enemyDataXml = new XmlDocument();
         _enemyDataXml.Load(_path);
@@ -62,7 +62,7 @@ public class EnemiesDataLoader : MonoBehaviour
         XmlNode dropListNode = enemyNode.SelectSingleNode("dropList");
         return int.Parse(dropListNode.Attributes["experience"].Value);
     }
-    public void GetDropItems(string name, out string rare, out int minLvl, out int maxLvl) //Возвращает рамки для дальнейшего поска вещей, которые могут выпасть с моба
+    public void GetDropItems(string name, out string rare, out int minLvl, out int maxLvl) //Р’РѕР·РІСЂР°С‰Р°РµС‚ СЂР°РјРєРё РґР»СЏ РґР°Р»СЊРЅРµР№С€РµРіРѕ РїРѕСЃРєР° РІРµС‰РµР№, РєРѕС‚РѕСЂС‹Рµ РјРѕРіСѓС‚ РІС‹РїР°СЃС‚СЊ СЃ РјРѕР±Р°
     {
         _enemyDataXml = new XmlDocument();
         _enemyDataXml.Load(_path);

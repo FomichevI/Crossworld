@@ -15,7 +15,7 @@ public class ItemDataLoader : MonoBehaviour
         _path = Application.dataPath + "/StreamingAssets/Data/ItemsData.xml";
     }
 
-    public void SetAllCharacteristics(EquipmentItemData item) //Загружает характеристики предмета
+    public void SetAllCharacteristics(EquipmentItemData item) //Р—Р°РіСЂСѓР¶Р°РµС‚ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё РїСЂРµРґРјРµС‚Р°
     {
         if (item.Set != "none")
         {
@@ -51,7 +51,7 @@ public class ItemDataLoader : MonoBehaviour
         }
     }
 
-    public List<EquipmentItemData> GetAllItems(string rare, int minLvl, int maxLvl) //Возвращает все предметы, подходящие под заданные условия
+    public List<EquipmentItemData> GetAllItems(string rare, int minLvl, int maxLvl) //Р’РѕР·РІСЂР°С‰Р°РµС‚ РІСЃРµ РїСЂРµРґРјРµС‚С‹, РїРѕРґС…РѕРґСЏС‰РёРµ РїРѕРґ Р·Р°РґР°РЅРЅС‹Рµ СѓСЃР»РѕРІРёСЏ
     {
         List<EquipmentItemData> items = new List<EquipmentItemData>();
         _itemDataXml = new XmlDocument();

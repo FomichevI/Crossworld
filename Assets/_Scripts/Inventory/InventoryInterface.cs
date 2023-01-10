@@ -2,11 +2,11 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class InventoryInterface : MonoBehaviour //Отвечает за отображение всех данных на сцене игтерфейса
+public class InventoryInterface : MonoBehaviour //РћС‚РІРµС‡Р°РµС‚ Р·Р° РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ РІСЃРµС… РґР°РЅРЅС‹С… РЅР° СЃС†РµРЅРµ РёРіС‚РµСЂС„РµР№СЃР°
 {
-    [SerializeField] private GameObject _inventoryEquipmentContent; //Контент, содержащий экипировку
-    [SerializeField] private GameObject _inventoryObjectPrefab; //Префаб элемента экипировки
-    [Header("Элементы экипировки персонажа")]
+    [SerializeField] private GameObject _inventoryEquipmentContent; //РљРѕРЅС‚РµРЅС‚, СЃРѕРґРµСЂР¶Р°С‰РёР№ СЌРєРёРїРёСЂРѕРІРєСѓ
+    [SerializeField] private GameObject _inventoryObjectPrefab; //РџСЂРµС„Р°Р± СЌР»РµРјРµРЅС‚Р° СЌРєРёРїРёСЂРѕРІРєРё
+    [Header("Р­Р»РµРјРµРЅС‚С‹ СЌРєРёРїРёСЂРѕРІРєРё РїРµСЂСЃРѕРЅР°Р¶Р°")]
     [SerializeField] private InventoryObject _helmetEquipped;
     [SerializeField] private InventoryObject _bracersEquipped;
     [SerializeField] private InventoryObject _shoulderPadsEquipped;
@@ -17,7 +17,7 @@ public class InventoryInterface : MonoBehaviour //Отвечает за отображение всех д
     [SerializeField] private InventoryObject _bootsEquipped;
     [SerializeField] private InventoryObject _shirtEquipped;
     [SerializeField] private PlayerBar _playerBar;
-    [Header("Тексты характеристик персонажа")]
+    [Header("РўРµРєСЃС‚С‹ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРє РїРµСЂСЃРѕРЅР°Р¶Р°")]
     [SerializeField] private TextMeshProUGUI _hpText;
     [SerializeField] private TextMeshProUGUI _damageText;
     [SerializeField] private TextMeshProUGUI _strengthText;
@@ -51,12 +51,12 @@ public class InventoryInterface : MonoBehaviour //Отвечает за отображение всех д
 
     private void RefreshInventory()
     {
-        //Обновляем окно инвентаря
+        //РћР±РЅРѕРІР»СЏРµРј РѕРєРЅРѕ РёРЅРІРµРЅС‚Р°СЂСЏ
         foreach (Transform child in _inventoryEquipmentContent.transform) Destroy(child.gameObject);
         EquipmentItemData[] inventoryItems = InventoryDataLoader.S.GetEquipment();
         foreach (EquipmentItemData item in inventoryItems)
         {
-            //Выбор типа
+            //Р’С‹Р±РѕСЂ С‚РёРїР°
             TypeItem type = TypeItem.equipment;
             if (item.Type == "none")
                 type = TypeItem.empty;
@@ -64,7 +64,7 @@ public class InventoryInterface : MonoBehaviour //Отвечает за отображение всех д
 
             iconGo.GetComponent<InventoryObject>().Initialization(type, item);
         }
-        //Обновляем окно персонажа
+        //РћР±РЅРѕРІР»СЏРµРј РѕРєРЅРѕ РїРµСЂСЃРѕРЅР°Р¶Р°
         inventoryItems = PlayerDataLoader.S.GetEquip();
         foreach (EquipmentItemData item in inventoryItems)
         {

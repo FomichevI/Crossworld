@@ -2,7 +2,7 @@ public enum HitDirection { up, midle, down}
 
 public class BattleCharacter : BattleMob
 {
-    public HitDirection[] KomboDirection; //*****************В будущем будет подгружаться из PlayerData********************
+    public HitDirection[] KomboDirection; //*****************Р’ Р±СѓРґСѓС‰РµРј Р±СѓРґРµС‚ РїРѕРґРіСЂСѓР¶Р°С‚СЊСЃСЏ РёР· PlayerData********************
 
     private void OnEnable()
     {
@@ -11,7 +11,7 @@ public class BattleCharacter : BattleMob
 
     private void Start()
     {
-        //*************Скиллы в разработке, пока что будет так ****************
+        //*************РЎРєРёР»Р»С‹ РІ СЂР°Р·СЂР°Р±РѕС‚РєРµ, РїРѕРєР° С‡С‚Рѕ Р±СѓРґРµС‚ С‚Р°Рє ****************
         Skills = new SkillInfo[7];
         for (int i = 0; i < 7; i++)
             Skills[i] = new SkillInfo();

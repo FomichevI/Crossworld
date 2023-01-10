@@ -15,7 +15,7 @@ public class PlayerNavigator : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
-        StartCoroutine("EnableNavMeshAgain"); //Нужно для того, чтобы персонаж не перескачил в рандомную точку на карте (пока нет другого решения)
+        StartCoroutine("EnableNavMeshAgain"); //РќСѓР¶РЅРѕ РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РїРµСЂСЃРѕРЅР°Р¶ РЅРµ РїРµСЂРµСЃРєР°С‡РёР» РІ СЂР°РЅРґРѕРјРЅСѓСЋ С‚РѕС‡РєСѓ РЅР° РєР°СЂС‚Рµ (РїРѕРєР° РЅРµС‚ РґСЂСѓРіРѕРіРѕ СЂРµС€РµРЅРёСЏ)
     }
 
     private void FixedUpdate()
@@ -36,7 +36,7 @@ public class PlayerNavigator : MonoBehaviour
 
     void Update()
     {
-        //Находим точку на поверхности земли, где был совершен клик и отправляем персонажа бежать к этой точке
+        //РќР°С…РѕРґРёРј С‚РѕС‡РєСѓ РЅР° РїРѕРІРµСЂС…РЅРѕСЃС‚Рё Р·РµРјР»Рё, РіРґРµ Р±С‹Р» СЃРѕРІРµСЂС€РµРЅ РєР»РёРє Рё РѕС‚РїСЂР°РІР»СЏРµРј РїРµСЂСЃРѕРЅР°Р¶Р° Р±РµР¶Р°С‚СЊ Рє СЌС‚РѕР№ С‚РѕС‡РєРµ
         if (Input.GetMouseButton(0))
         {
             if (!EventSystem.current.IsPointerOverGameObject())

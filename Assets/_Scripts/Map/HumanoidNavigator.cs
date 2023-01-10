@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class HumanoidNavigator : MobNavigator
 {
-    [Header("Настройки аниматора")]
+    [Header("РќР°СЃС‚СЂРѕР№РєРё Р°РЅРёРјР°С‚РѕСЂР°")]
     [SerializeField] private string _animationType;
 
     public override void OnStart()
     {
-        _animator.SetTrigger(_animationType); //Определить тип анимации с самого начала (тип анимации есть только у гуманоидов)
+        _animator.SetTrigger(_animationType); //РћРїСЂРµРґРµР»РёС‚СЊ С‚РёРї Р°РЅРёРјР°С†РёРё СЃ СЃР°РјРѕРіРѕ РЅР°С‡Р°Р»Р° (С‚РёРї Р°РЅРёРјР°С†РёРё РµСЃС‚СЊ С‚РѕР»СЊРєРѕ Сѓ РіСѓРјР°РЅРѕРёРґРѕРІ)
         base.OnStart();
     }
 }

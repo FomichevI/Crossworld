@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BuildingHide : MonoBehaviour //Отвечает за скрытие зданий и больших объектов, если они находятся между персонажем и камерой
+public class BuildingHide : MonoBehaviour //РћС‚РІРµС‡Р°РµС‚ Р·Р° СЃРєСЂС‹С‚РёРµ Р·РґР°РЅРёР№ Рё Р±РѕР»СЊС€РёС… РѕР±СЉРµРєС‚РѕРІ, РµСЃР»Рё РѕРЅРё РЅР°С…РѕРґСЏС‚СЃСЏ РјРµР¶РґСѓ РїРµСЂСЃРѕРЅР°Р¶РµРј Рё РєР°РјРµСЂРѕР№
 {
     [SerializeField] private Transform _playerTransform;
     private GameObject _currentBuilding;
@@ -12,11 +12,11 @@ public class BuildingHide : MonoBehaviour //Отвечает за скрытие зданий и больших
     void Update()
     {
         Vector3 direction = _playerTransform.position - Camera.main.transform.position;
-        _castRay = new Ray(Camera.main.transform.position - direction, direction); //Увеличиваем расстояние луча на случай, когда камера заходит внутрь колайдера здания
+        _castRay = new Ray(Camera.main.transform.position - direction, direction); //РЈРІРµР»РёС‡РёРІР°РµРј СЂР°СЃСЃС‚РѕСЏРЅРёРµ Р»СѓС‡Р° РЅР° СЃР»СѓС‡Р°Р№, РєРѕРіРґР° РєР°РјРµСЂР° Р·Р°С…РѕРґРёС‚ РІРЅСѓС‚СЂСЊ РєРѕР»Р°Р№РґРµСЂР° Р·РґР°РЅРёСЏ
         _castHit = new RaycastHit();
         _distCalculate = Vector3.Distance(_playerTransform.position, Camera.main.transform.position);
 
-        if (Physics.Raycast(_castRay, out _castHit, _distCalculate*2-1f)) //Так же увеличиваем дистанцию луча
+        if (Physics.Raycast(_castRay, out _castHit, _distCalculate*2-1f)) //РўР°Рє Р¶Рµ СѓРІРµР»РёС‡РёРІР°РµРј РґРёСЃС‚Р°РЅС†РёСЋ Р»СѓС‡Р°
         {
             if (_castHit.collider != null)
             {

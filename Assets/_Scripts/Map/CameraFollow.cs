@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour
 
     private void Update()
     {
-        //Вращение камеры
+        //Р’СЂР°С‰РµРЅРёРµ РєР°РјРµСЂС‹
         if(Input.GetKey(KeyCode.LeftArrow))
         {
             transform.rotation = Quaternion.Euler(new Vector3(0, ((transform.rotation.eulerAngles.y % 360) + 1), 0));
@@ -26,7 +26,7 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
-        //Следование за персонажем
+        //РЎР»РµРґРѕРІР°РЅРёРµ Р·Р° РїРµСЂСЃРѕРЅР°Р¶РµРј
         pos = new Vector3(target.position.x, target.position.y, target.position.z);
         transform.position = Vector3.MoveTowards(transform.position, pos, 0.5f);
     }

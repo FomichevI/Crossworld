@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BattleHumanoid : BattleMob
 {
-    [SerializeField] private string _animationType; //Анимация разных стоек для гуманойдов (зависит от типа оружия)
+    [SerializeField] private string _animationType; //РђРЅРёРјР°С†РёСЏ СЂР°Р·РЅС‹С… СЃС‚РѕРµРє РґР»СЏ РіСѓРјР°РЅРѕР№РґРѕРІ (Р·Р°РІРёСЃРёС‚ РѕС‚ С‚РёРїР° РѕСЂСѓР¶РёСЏ)
 
     public override void Initialize(string Name)
     {

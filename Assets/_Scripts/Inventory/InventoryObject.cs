@@ -6,10 +6,10 @@ public enum TypeItem {empty, equipment, loot}
 
 public class InventoryObject : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public bool OnPlayer = false; //Айтем надет на персонаже или находится в инвентаре
+    public bool OnPlayer = false; //РђР№С‚РµРј РЅР°РґРµС‚ РЅР° РїРµСЂСЃРѕРЅР°Р¶Рµ РёР»Рё РЅР°С…РѕРґРёС‚СЃСЏ РІ РёРЅРІРµРЅС‚Р°СЂРµ
     public TypeItem Type;
-    private EquipmentItemData _equipment; //Только для экипировки
-    //Визуальное отображение
+    private EquipmentItemData _equipment; //РўРѕР»СЊРєРѕ РґР»СЏ СЌРєРёРїРёСЂРѕРІРєРё
+    //Р’РёР·СѓР°Р»СЊРЅРѕРµ РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ
     [SerializeField] private Image _bg;
     [SerializeField] private Image _icon;
 
@@ -24,7 +24,7 @@ public class InventoryObject : MonoBehaviour, IPointerEnterHandler, IPointerExit
         }
     }
 
-    public void Initialization(TypeItem type, EquipmentItemData item) //Загрузка и отображение данных
+    public void Initialization(TypeItem type, EquipmentItemData item) //Р—Р°РіСЂСѓР·РєР° Рё РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ РґР°РЅРЅС‹С…
     {
         Type = type;
         if (type != TypeItem.empty)

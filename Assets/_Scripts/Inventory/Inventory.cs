@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Inventory : MonoBehaviour //Отвечает за расчет всех данных и их передачу интарфейсу
+public class Inventory : MonoBehaviour //РћС‚РІРµС‡Р°РµС‚ Р·Р° СЂР°СЃС‡РµС‚ РІСЃРµС… РґР°РЅРЅС‹С… Рё РёС… РїРµСЂРµРґР°С‡Сѓ РёРЅС‚Р°СЂС„РµР№СЃСѓ
 {
     public static Inventory S;
     public static UnityEvent RefreshInventoryEvent = new UnityEvent(); 
@@ -20,7 +20,7 @@ public class Inventory : MonoBehaviour //Отвечает за расчет всех данных и их пер
 
     private void Update()
     {
-        //Вращение персонажа при зажаток стрелке на клавиатуре
+        //Р’СЂР°С‰РµРЅРёРµ РїРµСЂСЃРѕРЅР°Р¶Р° РїСЂРё Р·Р°Р¶Р°С‚РѕРє СЃС‚СЂРµР»РєРµ РЅР° РєР»Р°РІРёР°С‚СѓСЂРµ
         if (Input.GetKey(KeyCode.LeftArrow))
             _player.transform.Rotate(0,1,0);
         if (Input.GetKey(KeyCode.RightArrow))
@@ -35,14 +35,14 @@ public class Inventory : MonoBehaviour //Отвечает за расчет всех данных и их пер
 
     public void SetOnEquipment(EquipmentItemData equip)
     {
-        if (equip.Level <= PlayerDataLoader.S.GetLevel()) //Надеваем вещь только если она подходит по уровню
+        if (equip.Level <= PlayerDataLoader.S.GetLevel()) //РќР°РґРµРІР°РµРј РІРµС‰СЊ С‚РѕР»СЊРєРѕ РµСЃР»Рё РѕРЅР° РїРѕРґС…РѕРґРёС‚ РїРѕ СѓСЂРѕРІРЅСЋ
         {
             EquipmentItemData oldItem_1 = null;
-            EquipmentItemData oldItem_2 = null; //В случае, когда нужно поменять 2 одноручных оружия на двуручное
+            EquipmentItemData oldItem_2 = null; //Р’ СЃР»СѓС‡Р°Рµ, РєРѕРіРґР° РЅСѓР¶РЅРѕ РїРѕРјРµРЅСЏС‚СЊ 2 РѕРґРЅРѕСЂСѓС‡РЅС‹С… РѕСЂСѓР¶РёСЏ РЅР° РґРІСѓСЂСѓС‡РЅРѕРµ
             if (equip.Type == "weaponLeft" || equip.Type == "weaponRight")
             {
                 EquipmentItemData onPlayer = null;
-                if (equip.Type == "weaponLeft") //Проверка на случай, если меняем двуручное оружие на одноручное в левую руку
+                if (equip.Type == "weaponLeft") //РџСЂРѕРІРµСЂРєР° РЅР° СЃР»СѓС‡Р°Р№, РµСЃР»Рё РјРµРЅСЏРµРј РґРІСѓСЂСѓС‡РЅРѕРµ РѕСЂСѓР¶РёРµ РЅР° РѕРґРЅРѕСЂСѓС‡РЅРѕРµ РІ Р»РµРІСѓСЋ СЂСѓРєСѓ
                 {
                     onPlayer = PlayerDataLoader.S.GetEquippedItem("weaponRight");
                     if (onPlayer.Class != "twoHanded")
@@ -53,11 +53,11 @@ public class Inventory : MonoBehaviour //Отвечает за расчет всех данных и их пер
                     onPlayer = PlayerDataLoader.S.GetEquippedItem(equip.Type);
                 }
 
-                if (equip.Type == "weaponLeft" && onPlayer.Class == "twoHanded")//Если надеваем оружие в левую руку с надетой двуручкой
+                if (equip.Type == "weaponLeft" && onPlayer.Class == "twoHanded")//Р•СЃР»Рё РЅР°РґРµРІР°РµРј РѕСЂСѓР¶РёРµ РІ Р»РµРІСѓСЋ СЂСѓРєСѓ СЃ РЅР°РґРµС‚РѕР№ РґРІСѓСЂСѓС‡РєРѕР№
                 {
                     oldItem_1 = PlayerDataLoader.S.GetEquippedItem("weaponRight");
                 }
-                else if (equip.Type == "weaponRight" && equip.Class == "twoHanded")//Если надеваем двуручку
+                else if (equip.Type == "weaponRight" && equip.Class == "twoHanded")//Р•СЃР»Рё РЅР°РґРµРІР°РµРј РґРІСѓСЂСѓС‡РєСѓ
                 {
                     oldItem_1 = PlayerDataLoader.S.GetEquippedItem(equip.Type);
                     oldItem_2 = PlayerDataLoader.S.GetEquippedItem("weaponLeft");
@@ -72,12 +72,12 @@ public class Inventory : MonoBehaviour //Отвечает за расчет всех данных и их пер
                 oldItem_1 = PlayerDataLoader.S.GetEquippedItem(equip.Type);
             }
 
-            //Снимаем старые вещи и надеваем новые
+            //РЎРЅРёРјР°РµРј СЃС‚Р°СЂС‹Рµ РІРµС‰Рё Рё РЅР°РґРµРІР°РµРј РЅРѕРІС‹Рµ
             if (oldItem_1 != null && oldItem_1.Name != "none")
             {
                 PlayerDataSaver.S.SetNewItem(new EquipmentItemData(oldItem_1.Type));
                 InventoryDataSaver.S.AddEquipmentItem(oldItem_1);
-            } //Если применить SetOffEquipment, то возникает проблема с аниматором
+            } //Р•СЃР»Рё РїСЂРёРјРµРЅРёС‚СЊ SetOffEquipment, С‚Рѕ РІРѕР·РЅРёРєР°РµС‚ РїСЂРѕР±Р»РµРјР° СЃ Р°РЅРёРјР°С‚РѕСЂРѕРј
             if (oldItem_2 != null && oldItem_2.Name != "none")
             {
                 PlayerDataSaver.S.SetNewItem(new EquipmentItemData(oldItem_2.Type));
@@ -94,8 +94,8 @@ public class Inventory : MonoBehaviour //Отвечает за расчет всех данных и их пер
             _uiAudio.PlayCantUse();
         }
     }
-    public void SetOffEquipment(EquipmentItemData equip) //Заменяем конкретную вещь на персонаже на пустую того же типа
-                                                         //и добавляем не пустую вещь в инвентарь
+    public void SetOffEquipment(EquipmentItemData equip) //Р—Р°РјРµРЅСЏРµРј РєРѕРЅРєСЂРµС‚РЅСѓСЋ РІРµС‰СЊ РЅР° РїРµСЂСЃРѕРЅР°Р¶Рµ РЅР° РїСѓСЃС‚СѓСЋ С‚РѕРіРѕ Р¶Рµ С‚РёРїР°
+                                                         //Рё РґРѕР±Р°РІР»СЏРµРј РЅРµ РїСѓСЃС‚СѓСЋ РІРµС‰СЊ РІ РёРЅРІРµРЅС‚Р°СЂСЊ
     {
         PlayerDataSaver.S.SetNewItem(new EquipmentItemData(equip.Type));
         InventoryDataSaver.S.AddEquipmentItem(equip);

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CharacterPresenter : MonoBehaviour //Отвечает за смену внешнего вида персонажа и переключения типа анимации в зависимости от типа оружия
+public class CharacterPresenter : MonoBehaviour //РћС‚РІРµС‡Р°РµС‚ Р·Р° СЃРјРµРЅСѓ РІРЅРµС€РЅРµРіРѕ РІРёРґР° РїРµСЂСЃРѕРЅР°Р¶Р° Рё РїРµСЂРµРєР»СЋС‡РµРЅРёСЏ С‚РёРїР° Р°РЅРёРјР°С†РёРё РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ С‚РёРїР° РѕСЂСѓР¶РёСЏ
 {
     [SerializeField] private SkinnedMeshRenderer _helmetMr;
     [SerializeField] private SkinnedMeshRenderer _cuirassMr;
@@ -27,7 +27,7 @@ public class CharacterPresenter : MonoBehaviour //Отвечает за смену внешнего вид
     {
         EquipmentItemData[] inventoryItems = PlayerDataLoader.S.GetEquip();
         SkinnedMeshRenderer currentItem = null;
-        //Активируем все элементы снаряжения + борода и волосы. Отключаем всё возможное оружие
+        //РђРєС‚РёРІРёСЂСѓРµРј РІСЃРµ СЌР»РµРјРµРЅС‚С‹ СЃРЅР°СЂСЏР¶РµРЅРёСЏ + Р±РѕСЂРѕРґР° Рё РІРѕР»РѕСЃС‹. РћС‚РєР»СЋС‡Р°РµРј РІСЃС‘ РІРѕР·РјРѕР¶РЅРѕРµ РѕСЂСѓР¶РёРµ
         _headMr.gameObject.SetActive(true);
         _beardMr.gameObject.SetActive(true);
         _helmetMr.gameObject.SetActive(true);
@@ -39,11 +39,11 @@ public class CharacterPresenter : MonoBehaviour //Отвечает за смену внешнего вид
         _twoHandedWeaponMr.gameObject.SetActive(false);
         foreach (EquipmentItemData item in inventoryItems)
         {
-            //Выбираем текущий предмет
+            //Р’С‹Р±РёСЂР°РµРј С‚РµРєСѓС‰РёР№ РїСЂРµРґРјРµС‚
             if (item.Type == "helmet") { currentItem = _helmetMr; }
             else if (item.Type == "bracers") { currentItem = _bracersMr; }
             else if (item.Type == "shoulderPads") { currentItem = _shoulderPadsMr; }
-            //Определяем, какое оружие включить
+            //РћРїСЂРµРґРµР»СЏРµРј, РєР°РєРѕРµ РѕСЂСѓР¶РёРµ РІРєР»СЋС‡РёС‚СЊ
             else if (item.Type == "weaponRight")
             {
                 if (item.Class == "oneHanded")
@@ -75,11 +75,11 @@ public class CharacterPresenter : MonoBehaviour //Отвечает за смену внешнего вид
             else if (item.Type == "boots") { currentItem = _bootsMr; }
             else if (item.Type == "shirt") { continue; }
 
-            if (item.Name != "none")//Если слот предмета не пустой, то отображаем необходимый предмет
+            if (item.Name != "none")//Р•СЃР»Рё СЃР»РѕС‚ РїСЂРµРґРјРµС‚Р° РЅРµ РїСѓСЃС‚РѕР№, С‚Рѕ РѕС‚РѕР±СЂР°Р¶Р°РµРј РЅРµРѕР±С…РѕРґРёРјС‹Р№ РїСЂРµРґРјРµС‚
             {
                 currentItem.sharedMesh = Resources.Load<Mesh>("_Models/Characters/Set/" + item.Set + "/" + item.Type);
                 currentItem.material = Resources.Load<Material>("_Models/Characters/Set/" + item.Set + "/SetMaterial");
-                if (item.Type == "helmet") //Скрываем волосы, или полностью голову в зависимости от класса шлема
+                if (item.Type == "helmet") //РЎРєСЂС‹РІР°РµРј РІРѕР»РѕСЃС‹, РёР»Рё РїРѕР»РЅРѕСЃС‚СЊСЋ РіРѕР»РѕРІСѓ РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ РєР»Р°СЃСЃР° С€Р»РµРјР°
                 {
                     if (item.Class == "helf") { _hairMr.gameObject.SetActive(false); }
                     else if (item.Class == "full")
@@ -90,7 +90,7 @@ public class CharacterPresenter : MonoBehaviour //Отвечает за смену внешнего вид
                     }
                 }
             }
-            else//В противном случае либо отключаем отображение предмета, либо отображаем стандартный
+            else//Р’ РїСЂРѕС‚РёРІРЅРѕРј СЃР»СѓС‡Р°Рµ Р»РёР±Рѕ РѕС‚РєР»СЋС‡Р°РµРј РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ РїСЂРµРґРјРµС‚Р°, Р»РёР±Рѕ РѕС‚РѕР±СЂР°Р¶Р°РµРј СЃС‚Р°РЅРґР°СЂС‚РЅС‹Р№
             {
                 if (currentItem == _helmetMr || currentItem == _shoulderPadsMr || currentItem == _weaponRightMr || currentItem == _weaponLeftMr || currentItem == _twoHandedWeaponMr
                     || currentItem == _shildMr)
@@ -105,7 +105,7 @@ public class CharacterPresenter : MonoBehaviour //Отвечает за смену внешнего вид
             }
         }
 
-        //меняем анимацию в зависимости от активного оружия
+        //РјРµРЅСЏРµРј Р°РЅРёРјР°С†РёСЋ РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ Р°РєС‚РёРІРЅРѕРіРѕ РѕСЂСѓР¶РёСЏ
         if (_twoHandedWeaponMr.gameObject.activeSelf)
             _animator.SetTrigger("TwoHandedType");
         else if (_weaponLeftMr.gameObject.activeSelf)

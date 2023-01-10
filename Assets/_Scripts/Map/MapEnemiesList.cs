@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class MapEnemiesList : MonoBehaviour //Отвечает за отображение списка противников на сцене карты
+public class MapEnemiesList : MonoBehaviour //РћС‚РІРµС‡Р°РµС‚ Р·Р° РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ СЃРїРёСЃРєР° РїСЂРѕС‚РёРІРЅРёРєРѕРІ РЅР° СЃС†РµРЅРµ РєР°СЂС‚С‹
 {
     [SerializeField] private Image _simpleEnemyIcon;
     [SerializeField] private Image _middleEnemyIcon;

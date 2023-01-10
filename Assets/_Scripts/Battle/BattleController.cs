@@ -17,7 +17,7 @@ public class BattleController : MonoBehaviour
     private BattleData _battleData;
     [SerializeField] private Transform _playerTrans;
     [SerializeField] private Transform _enemyTrans;
-    [Header("Настройки боя")]
+    [Header("РќР°СЃС‚СЂРѕР№РєРё Р±РѕСЏ")]
     [SerializeField] private float _delayBetweenTurns = 1f;
     private bool _isPlayerTurn = true;
     private bool _isFighting = true;
@@ -32,13 +32,13 @@ public class BattleController : MonoBehaviour
         if (S == null)
             S = this;
         _battleData = Resources.Load<BattleData>("ScriptableObjects/BattleData");
-        //Создаем и инициализируем персонажа
+        //РЎРѕР·РґР°РµРј Рё РёРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј РїРµСЂСЃРѕРЅР°Р¶Р°
         GameObject playerGo = Instantiate<GameObject>(Resources.Load<GameObject>("Prefabs/BattlePlayer"), _playerTrans.position, _playerTrans.rotation);
         _battleData.Player = playerGo.GetComponent<BattleCharacter>();
         _battleData.KomboHits = _battleData.Player.KomboDirection;
         _battleData.FilledCombo = 0;
         _battleData.Player.Initialize("player");
-        //Создаем и инициализируем противника
+        //РЎРѕР·РґР°РµРј Рё РёРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј РїСЂРѕС‚РёРІРЅРёРєР°
         string enemyName = PlayerDataLoader.S.GetCurrentEnemy();
         GameObject enemyGo = Instantiate<GameObject>(Resources.Load<GameObject>("Prefabs/Enemies/Battle/" + enemyName), _enemyTrans.position, _enemyTrans.rotation);
         _battleData.Enemy = enemyGo.GetComponent<BattleMob>();
@@ -49,11 +49,11 @@ public class BattleController : MonoBehaviour
     {
         yield return new WaitForSeconds(_delayBetweenTurns);
         if (!_isFighting) yield break;
-        if (_isPlayerTurn) //Если ход игрока, то активируем все, что может использовать игрок в свой ход
+        if (_isPlayerTurn) //Р•СЃР»Рё С…РѕРґ РёРіСЂРѕРєР°, С‚Рѕ Р°РєС‚РёРІРёСЂСѓРµРј РІСЃРµ, С‡С‚Рѕ РјРѕР¶РµС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РёРіСЂРѕРє РІ СЃРІРѕР№ С…РѕРґ
         {
             ShowHitButtonsEvent.Invoke();
         }
-        else //Если ход противника, то просто наносим удал (в самом классе противника будет возможность использовать способность, в зависимости от условий)
+        else //Р•СЃР»Рё С…РѕРґ РїСЂРѕС‚РёРІРЅРёРєР°, С‚Рѕ РїСЂРѕСЃС‚Рѕ РЅР°РЅРѕСЃРёРј СѓРґР°Р» (РІ СЃР°РјРѕРј РєР»Р°СЃСЃРµ РїСЂРѕС‚РёРІРЅРёРєР° Р±СѓРґРµС‚ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ СЃРїРѕСЃРѕР±РЅРѕСЃС‚СЊ, РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ СѓСЃР»РѕРІРёР№)
         {
             HitDirection dir = (HitDirection)Random.Range(0, System.Enum.GetValues(typeof(HitDirection)).Length);
             _battleData.Enemy.MakeSimpleHit(dir);
@@ -90,7 +90,7 @@ public class BattleController : MonoBehaviour
             chanceToBlock = _battleData.Player.Characteristics.ChanceToBlock;
             chanceToCrit = _battleData.Enemy.Characteristics.ChanceToCrit;
             mob = _battleData.Player;
-            //Считаем мултипликатор пробивания
+            //РЎС‡РёС‚Р°РµРј РјСѓР»С‚РёРїР»РёРєР°С‚РѕСЂ РїСЂРѕР±РёРІР°РЅРёСЏ
             _battleData.PenetrationMultiplier = 1 + _battleData.Player.Characteristics.MultiplierDamage / 100f - _battleData.Enemy.Characteristics.MultiplierDefense / 100f;
         }
         else
@@ -99,10 +99,10 @@ public class BattleController : MonoBehaviour
             chanceToBlock = _battleData.Enemy.Characteristics.ChanceToBlock;
             chanceToCrit = _battleData.Player.Characteristics.ChanceToCrit;
             mob = _battleData.Enemy;
-            //Считаем мултипликатор пробивания
+            //РЎС‡РёС‚Р°РµРј РјСѓР»С‚РёРїР»РёРєР°С‚РѕСЂ РїСЂРѕР±РёРІР°РЅРёСЏ
             _battleData.PenetrationMultiplier = 1 + _battleData.Enemy.Characteristics.MultiplierDamage / 100f - _battleData.Player.Characteristics.MultiplierDefense / 100f;
         }
-        //Проверка на попадание
+        //РџСЂРѕРІРµСЂРєР° РЅР° РїРѕРїР°РґР°РЅРёРµ
         int random = Random.Range(0, 100);
         if (random < chanceToDodge)
         {
@@ -119,7 +119,7 @@ public class BattleController : MonoBehaviour
         {
             _battleData.TypeOfCurrentHit = TypeOfHit.simple;
         }
-        //Проверка на крит
+        //РџСЂРѕРІРµСЂРєР° РЅР° РєСЂРёС‚
         random = Random.Range(0, 100);
         if (random < chanceToCrit)
         {
@@ -128,14 +128,14 @@ public class BattleController : MonoBehaviour
         }
     }
 
-    private void DealDamage(int damage, bool forPlayer) //Непосредственное нанесение урона
+    private void DealDamage(int damage, bool forPlayer) //РќРµРїРѕСЃСЂРµРґСЃС‚РІРµРЅРЅРѕРµ РЅР°РЅРµСЃРµРЅРёРµ СѓСЂРѕРЅР°
     {
         if (_battleData.TypeOfCurrentHit != TypeOfHit.miss)
         {
             if (!forPlayer)
             {
                 _battleData.Enemy.GetDamage(damage);
-                if (_battleData.FilledCombo < 7 && _battleData.KomboHits[_battleData.FilledCombo] == _battleData.Player.CurrentDirection) //Заполняем счетчик комбо
+                if (_battleData.FilledCombo < 7 && _battleData.KomboHits[_battleData.FilledCombo] == _battleData.Player.CurrentDirection) //Р—Р°РїРѕР»РЅСЏРµРј СЃС‡РµС‚С‡РёРє РєРѕРјР±Рѕ
                     ChangeFilledCombo(1);
             }
             else
@@ -143,7 +143,7 @@ public class BattleController : MonoBehaviour
                 _battleData.Player.GetDamage(damage);
             }
         }
-        _isPlayerTurn = !_isPlayerTurn; //Даем ход аппоненту
+        _isPlayerTurn = !_isPlayerTurn; //Р”Р°РµРј С…РѕРґ Р°РїРїРѕРЅРµРЅС‚Сѓ
         StartCoroutine("StartNewTurn");
     }
 

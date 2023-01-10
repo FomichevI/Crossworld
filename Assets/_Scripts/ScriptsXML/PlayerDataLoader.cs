@@ -1,14 +1,14 @@
 using UnityEngine;
 using System.Xml;
 
-public class EquipmentItemData //Данные экипировки
+public class EquipmentItemData //Р”Р°РЅРЅС‹Рµ СЌРєРёРїРёСЂРѕРІРєРё
 {
-    //Существуют во всех файлах данных (data)
+    //РЎСѓС‰РµСЃС‚РІСѓСЋС‚ РІРѕ РІСЃРµС… С„Р°Р№Р»Р°С… РґР°РЅРЅС‹С… (data)
     public string Name;
     public string Type;
     public string Set;
 
-    //Существуют только в ItemsData
+    //РЎСѓС‰РµСЃС‚РІСѓСЋС‚ С‚РѕР»СЊРєРѕ РІ ItemsData
     public string Rare;
     public string Class;
     public int Level;
@@ -68,7 +68,7 @@ public class PlayerDataLoader : MonoBehaviour
         int exp = int.Parse(statsNode.Attributes["experience"].Value);
         return exp;
     }
-    public EquipmentItemData[] GetEquip() //Возвращает весь список экипированных вещей
+    public EquipmentItemData[] GetEquip() //Р’РѕР·РІСЂР°С‰Р°РµС‚ РІРµСЃСЊ СЃРїРёСЃРѕРє СЌРєРёРїРёСЂРѕРІР°РЅРЅС‹С… РІРµС‰РµР№
     {
         _playerDataXml = new XmlDocument();
         _playerDataXml.Load(_path);
@@ -83,7 +83,7 @@ public class PlayerDataLoader : MonoBehaviour
         return items;
     }
 
-    public EquipmentItemData GetEquippedItem(string type) //Возвращает вещь, экипированную в конкретном слоте (при смене эквипа)
+    public EquipmentItemData GetEquippedItem(string type) //Р’РѕР·РІСЂР°С‰Р°РµС‚ РІРµС‰СЊ, СЌРєРёРїРёСЂРѕРІР°РЅРЅСѓСЋ РІ РєРѕРЅРєСЂРµС‚РЅРѕРј СЃР»РѕС‚Рµ (РїСЂРё СЃРјРµРЅРµ СЌРєРІРёРїР°)
     {
         _playerDataXml = new XmlDocument();
         _playerDataXml.Load(_path);
@@ -102,7 +102,7 @@ public class PlayerDataLoader : MonoBehaviour
         return item;
     }
 
-    public string GetCurrentEnemy() //Возвращает противника, с которым будет происходить следующее сражение
+    public string GetCurrentEnemy() //Р’РѕР·РІСЂР°С‰Р°РµС‚ РїСЂРѕС‚РёРІРЅРёРєР°, СЃ РєРѕС‚РѕСЂС‹Рј Р±СѓРґРµС‚ РїСЂРѕРёСЃС…РѕРґРёС‚СЊ СЃР»РµРґСѓСЋС‰РµРµ СЃСЂР°Р¶РµРЅРёРµ
     {
         _playerDataXml = new XmlDocument();
         _playerDataXml.Load(_path);
@@ -110,7 +110,7 @@ public class PlayerDataLoader : MonoBehaviour
         XmlNode currentFightNode = xml.SelectSingleNode("currentFight");
         return currentFightNode.Attributes["enemy"].Value;
     }
-    public Vector3 GetMapPosition() //Возвращает позицию персонажа на карте
+    public Vector3 GetMapPosition() //Р’РѕР·РІСЂР°С‰Р°РµС‚ РїРѕР·РёС†РёСЋ РїРµСЂСЃРѕРЅР°Р¶Р° РЅР° РєР°СЂС‚Рµ
     {
         System.Globalization.CultureInfo ci = (System.Globalization.CultureInfo)System.Globalization.CultureInfo.CurrentCulture.Clone();
         ci.NumberFormat.CurrencyDecimalSeparator = ",";

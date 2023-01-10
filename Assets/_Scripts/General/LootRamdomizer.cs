@@ -17,7 +17,7 @@ public class Loot
 
 public class LootRamdomizer
 {
-    public EquipmentItemData[] GetLoot(string enemyName) //Возвращает весь выпавший с моба лут
+    public EquipmentItemData[] GetLoot(string enemyName) //Р’РѕР·РІСЂР°С‰Р°РµС‚ РІРµСЃСЊ РІС‹РїР°РІС€РёР№ СЃ РјРѕР±Р° Р»СѓС‚
     {
         EquipmentItemData[] lootList = null;
         float dropChance = EnemiesDataLoader.S.GetDropChance(enemyName);
@@ -25,12 +25,12 @@ public class LootRamdomizer
         {
             List<EquipmentItemData> allLoot = GetLootList(enemyName);
             lootList = new EquipmentItemData[1];
-            lootList[0] = allLoot[Random.Range(0, allLoot.Count)]; //************Пока что только одна вещь с моба****************
+            lootList[0] = allLoot[Random.Range(0, allLoot.Count)]; //************РџРѕРєР° С‡С‚Рѕ С‚РѕР»СЊРєРѕ РѕРґРЅР° РІРµС‰СЊ СЃ РјРѕР±Р°****************
         }
         return lootList;
     }
 
-    private List<EquipmentItemData> GetLootList(string enemyName) //Возвращает все возможные вещи, которые могут выпасть с моба
+    private List<EquipmentItemData> GetLootList(string enemyName) //Р’РѕР·РІСЂР°С‰Р°РµС‚ РІСЃРµ РІРѕР·РјРѕР¶РЅС‹Рµ РІРµС‰Рё, РєРѕС‚РѕСЂС‹Рµ РјРѕРіСѓС‚ РІС‹РїР°СЃС‚СЊ СЃ РјРѕР±Р°
     {
         string rare; 
         int minLvl;

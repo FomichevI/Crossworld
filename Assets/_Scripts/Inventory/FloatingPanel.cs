@@ -8,11 +8,11 @@ public class FloatingPanel : MonoBehaviour
     [SerializeField] private GameObject _child;
     private bool _isShowing = false;
 
-    [SerializeField] private TextMeshProUGUI _descriptionText; //Описание предмета
-    [SerializeField] private TextMeshProUGUI _nameItemText; //Название предмета
-    [SerializeField] private TextMeshProUGUI _characteristicValueText; //Характеристики самого предмета
-    [SerializeField] private TextMeshProUGUI _characteristicCompareText; //Сравнение характеристик предметов
-    [Header("Настройки иконки")]
+    [SerializeField] private TextMeshProUGUI _descriptionText; //РћРїРёСЃР°РЅРёРµ РїСЂРµРґРјРµС‚Р°
+    [SerializeField] private TextMeshProUGUI _nameItemText; //РќР°Р·РІР°РЅРёРµ РїСЂРµРґРјРµС‚Р°
+    [SerializeField] private TextMeshProUGUI _characteristicValueText; //РҐР°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё СЃР°РјРѕРіРѕ РїСЂРµРґРјРµС‚Р°
+    [SerializeField] private TextMeshProUGUI _characteristicCompareText; //РЎСЂР°РІРЅРµРЅРёРµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРє РїСЂРµРґРјРµС‚РѕРІ
+    [Header("РќР°СЃС‚СЂРѕР№РєРё РёРєРѕРЅРєРё")]
     [SerializeField] private Image _itemBg;
     [SerializeField] private Image _itemIcon;
     [SerializeField] private RectTransform _bgFildTrans;
@@ -38,7 +38,7 @@ public class FloatingPanel : MonoBehaviour
         string charValue = "";
         string charCompare = "";
         EquipmentItemData wornItem = null;
-        if (equip.Type == "weaponLeft")//Если надето двуручное оружие, то оружие для левой руки сравниваем с ним
+        if (equip.Type == "weaponLeft")//Р•СЃР»Рё РЅР°РґРµС‚Рѕ РґРІСѓСЂСѓС‡РЅРѕРµ РѕСЂСѓР¶РёРµ, С‚Рѕ РѕСЂСѓР¶РёРµ РґР»СЏ Р»РµРІРѕР№ СЂСѓРєРё СЃСЂР°РІРЅРёРІР°РµРј СЃ РЅРёРј
         {
             EquipmentItemData rightWeapon = PlayerDataLoader.S.GetEquippedItem("weaponRight");
             if (rightWeapon.Class == "twoHanded")
@@ -50,7 +50,7 @@ public class FloatingPanel : MonoBehaviour
         {
             wornItem = PlayerDataLoader.S.GetEquippedItem(equip.Type);
         }
-        //Первая строчка - уровень предмета
+        //РџРµСЂРІР°СЏ СЃС‚СЂРѕС‡РєР° - СѓСЂРѕРІРµРЅСЊ РїСЂРµРґРјРµС‚Р°
         int playerLevel = PlayerDataLoader.S.GetLevel();
         description += LanguageDataLoader.S.GetCharacteristic("level") + "\n\n";
         charValue += equip.Level + "\n\n";
@@ -58,7 +58,7 @@ public class FloatingPanel : MonoBehaviour
             charCompare += "<color=green>" + playerLevel + "</color>" + "\n\n";
         else
             charCompare += "<color=red>" + playerLevel + "</color>" + "\n\n";
-        //Вторая строчка - урон
+        //Р’С‚РѕСЂР°СЏ СЃС‚СЂРѕС‡РєР° - СѓСЂРѕРЅ
         if (equip.MinDamage != 0 || (equip.MinDamage - wornItem.MinDamage) != 0)
         {
             description += LanguageDataLoader.S.GetCharacteristic("minDamage") + "\n";
@@ -88,7 +88,7 @@ public class FloatingPanel : MonoBehaviour
             else
                 charCompare += "<color=green>" + (equip.MaxDamage - wornItem.MaxDamage) + "</color>" + "\n\n";
         }
-        //Последующие строчки - характеристики
+        //РџРѕСЃР»РµРґСѓСЋС‰РёРµ СЃС‚СЂРѕС‡РєРё - С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё
         if (equip.Strength != 0 || (equip.Strength - wornItem.Strength) != 0)
         {
             description += LanguageDataLoader.S.GetCharacteristic("strength") + "\n";

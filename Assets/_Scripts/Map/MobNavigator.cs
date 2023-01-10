@@ -9,12 +9,12 @@ public class MobNavigator : MonoBehaviour
     private bool _isMoving = false;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _runMultiplier;
-    [SerializeField] private float _idleTime = 3f; //Время, которое моб будет находиться на месте прежде, чем продолжить движение
-    private float _currentIdleTime; //Счетчик нахождения на одном месте
-    [SerializeField] private float _moveDistance = 4; //Дальность, на которую моб передвинится за раз
-    private Transform _playerTrans; //Transform игрока
-    [SerializeField] private float _followDistance; //Дистанция, на которой моб перестает преследовать игрока
-    [Header("Настройки аудио")]
+    [SerializeField] private float _idleTime = 3f; //Р’СЂРµРјСЏ, РєРѕС‚РѕСЂРѕРµ РјРѕР± Р±СѓРґРµС‚ РЅР°С…РѕРґРёС‚СЊСЃСЏ РЅР° РјРµСЃС‚Рµ РїСЂРµР¶РґРµ, С‡РµРј РїСЂРѕРґРѕР»Р¶РёС‚СЊ РґРІРёР¶РµРЅРёРµ
+    private float _currentIdleTime; //РЎС‡РµС‚С‡РёРє РЅР°С…РѕР¶РґРµРЅРёСЏ РЅР° РѕРґРЅРѕРј РјРµСЃС‚Рµ
+    [SerializeField] private float _moveDistance = 4; //Р”Р°Р»СЊРЅРѕСЃС‚СЊ, РЅР° РєРѕС‚РѕСЂСѓСЋ РјРѕР± РїРµСЂРµРґРІРёРЅРёС‚СЃСЏ Р·Р° СЂР°Р·
+    private Transform _playerTrans; //Transform РёРіСЂРѕРєР°
+    [SerializeField] private float _followDistance; //Р”РёСЃС‚Р°РЅС†РёСЏ, РЅР° РєРѕС‚РѕСЂРѕР№ РјРѕР± РїРµСЂРµСЃС‚Р°РµС‚ РїСЂРµСЃР»РµРґРѕРІР°С‚СЊ РёРіСЂРѕРєР°
+    [Header("РќР°СЃС‚СЂРѕР№РєРё Р°СѓРґРёРѕ")]
     [SerializeField] private AudioClip _startRun;
     private AudioSource _audioSource;
 
@@ -25,14 +25,14 @@ public class MobNavigator : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         OnStart();
     }
-    public virtual void OnStart() //Необходим для дочерних классов
+    public virtual void OnStart() //РќРµРѕР±С…РѕРґРёРј РґР»СЏ РґРѕС‡РµСЂРЅРёС… РєР»Р°СЃСЃРѕРІ
     {    }
 
     private void FixedUpdate()
     {
         if (_isMoving)
         {
-            //Анимация движения
+            //РђРЅРёРјР°С†РёСЏ РґРІРёР¶РµРЅРёСЏ
             if (_agent.velocity.magnitude < 0.5f && _currentIdleTime > 0 && !_isRunMode)
             {
                 _isMoving = false;
@@ -51,7 +51,7 @@ public class MobNavigator : MonoBehaviour
                 _animator.speed = 1f;
                 _animator.SetInteger("Speed", 1);
             }
-            //Следование за игроком
+            //РЎР»РµРґРѕРІР°РЅРёРµ Р·Р° РёРіСЂРѕРєРѕРј
             if(_playerTrans!= null && _isRunMode)
             {
                 if ((transform.position - _playerTrans.position).magnitude > _followDistance)
@@ -64,7 +64,7 @@ public class MobNavigator : MonoBehaviour
                     _agent.destination = _playerTrans.position;
                 }
             }
-            //Счетчик во время движения (необходим для того, чтобы персонаж успел набрать скорость после начала движения. Иначе - слетает анимация)
+            //РЎС‡РµС‚С‡РёРє РІРѕ РІСЂРµРјСЏ РґРІРёР¶РµРЅРёСЏ (РЅРµРѕР±С…РѕРґРёРј РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РїРµСЂСЃРѕРЅР°Р¶ СѓСЃРїРµР» РЅР°Р±СЂР°С‚СЊ СЃРєРѕСЂРѕСЃС‚СЊ РїРѕСЃР»Рµ РЅР°С‡Р°Р»Р° РґРІРёР¶РµРЅРёСЏ. РРЅР°С‡Рµ - СЃР»РµС‚Р°РµС‚ Р°РЅРёРјР°С†РёСЏ)
             if (_currentIdleTime <= 0) _currentIdleTime += 0.02f;
         }
         else
@@ -73,7 +73,7 @@ public class MobNavigator : MonoBehaviour
             {
                 _currentIdleTime -= 0.02f;
             }
-            else if (_currentIdleTime < 0) //После окончания ожидания
+            else if (_currentIdleTime < 0) //РџРѕСЃР»Рµ РѕРєРѕРЅС‡Р°РЅРёСЏ РѕР¶РёРґР°РЅРёСЏ
             {
                 _currentIdleTime -= 1f;
                 float x = Random.Range(-_moveDistance, +_moveDistance);
@@ -88,7 +88,7 @@ public class MobNavigator : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Если задевает триггер игрока, то начинает за ним следовать
+        //Р•СЃР»Рё Р·Р°РґРµРІР°РµС‚ С‚СЂРёРіРіРµСЂ РёРіСЂРѕРєР°, С‚Рѕ РЅР°С‡РёРЅР°РµС‚ Р·Р° РЅРёРј СЃР»РµРґРѕРІР°С‚СЊ
         if (other.CompareTag("Player")) StartRun(other.transform);              
     }
     private void StartRun(Transform target)
@@ -102,7 +102,7 @@ public class MobNavigator : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //Если сталкивается с персонажем, то начинается файт
+        //Р•СЃР»Рё СЃС‚Р°Р»РєРёРІР°РµС‚СЃСЏ СЃ РїРµСЂСЃРѕРЅР°Р¶РµРј, С‚Рѕ РЅР°С‡РёРЅР°РµС‚СЃСЏ С„Р°Р№С‚
         if (collision.gameObject.CompareTag("Player")) StartFight();              
     }
     private void StartFight()

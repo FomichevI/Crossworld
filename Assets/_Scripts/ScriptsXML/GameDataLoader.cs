@@ -13,7 +13,7 @@ public class GameDataLoader : MonoBehaviour
         _path = Application.dataPath + "/StreamingAssets/Data/GameData.xml";
     }
 
-    public int GetExperienceToLevelUp(int currentLevel) //Возвращает количество очков опыта, необходимое для следующего лвлапа
+    public int GetExperienceToLevelUp(int currentLevel) //Р’РѕР·РІСЂР°С‰Р°РµС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ РѕС‡РєРѕРІ РѕРїС‹С‚Р°, РЅРµРѕР±С…РѕРґРёРјРѕРµ РґР»СЏ СЃР»РµРґСѓСЋС‰РµРіРѕ Р»РІР»Р°РїР°
     {
         _gameDataXml = new XmlDocument();
         _gameDataXml.Load(_path);
@@ -22,7 +22,7 @@ public class GameDataLoader : MonoBehaviour
         XmlNode levelNode = expNode.SelectSingleNode("level" + currentLevel);
         return int.Parse(levelNode.Attributes["value"].Value);
     }
-    public void GetEnemyByType(string location, string type, out string name, out int count) //Возвращает имя и количество противников конкретного типа на конкретной локации
+    public void GetEnemyByType(string location, string type, out string name, out int count) //Р’РѕР·РІСЂР°С‰Р°РµС‚ РёРјСЏ Рё РєРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРѕС‚РёРІРЅРёРєРѕРІ РєРѕРЅРєСЂРµС‚РЅРѕРіРѕ С‚РёРїР° РЅР° РєРѕРЅРєСЂРµС‚РЅРѕР№ Р»РѕРєР°С†РёРё
     {
         _gameDataXml = new XmlDocument();
         _gameDataXml.Load(_path);
@@ -42,7 +42,7 @@ public class GameDataLoader : MonoBehaviour
             count = 0;
         }
     }
-    public string GetEnemyByType(string location, string type) //Возвращает только имя противников конкретного типа на конкретной локации
+    public string GetEnemyByType(string location, string type) //Р’РѕР·РІСЂР°С‰Р°РµС‚ С‚РѕР»СЊРєРѕ РёРјСЏ РїСЂРѕС‚РёРІРЅРёРєРѕРІ РєРѕРЅРєСЂРµС‚РЅРѕРіРѕ С‚РёРїР° РЅР° РєРѕРЅРєСЂРµС‚РЅРѕР№ Р»РѕРєР°С†РёРё
     {
         _gameDataXml = new XmlDocument();
         _gameDataXml.Load(_path);

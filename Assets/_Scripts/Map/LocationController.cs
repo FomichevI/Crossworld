@@ -8,7 +8,7 @@ public class LocationController : MonoBehaviour
     [SerializeField] private Transform _playerPosition; public Transform PlayerPosition { get { return _playerPosition; } }
     private Characteristics _playerCharacteristics; public Characteristics PlayerCharacteristics { get { return _playerCharacteristics; } }
 
-    [Header("Настройки локации")]
+    [Header("РќР°СЃС‚СЂРѕР№РєРё Р»РѕРєР°С†РёРё")]
     [SerializeField] private string _locationName = "Village"; public string LocationName { get { return _locationName; } }
 
     private void Awake()

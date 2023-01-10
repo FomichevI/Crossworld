@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SkillInfo //Данные навыка для использования
+public class SkillInfo //Р”Р°РЅРЅС‹Рµ РЅР°РІС‹РєР° РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ
 {
     public string HitName;
     public int ValueToUse;
@@ -20,16 +20,16 @@ public class SkillInfo //Данные навыка для использования
 
 public class BattleMob : MonoBehaviour
 {
-    public HitDirection CurrentDirection; //Текущее направление удара
+    public HitDirection CurrentDirection; //РўРµРєСѓС‰РµРµ РЅР°РїСЂР°РІР»РµРЅРёРµ СѓРґР°СЂР°
     public int CurrentHp;
-    [HideInInspector] public SkillInfo[] Skills; //Список доступных скиллов
+    [HideInInspector] public SkillInfo[] Skills; //РЎРїРёСЃРѕРє РґРѕСЃС‚СѓРїРЅС‹С… СЃРєРёР»Р»РѕРІ
     private SkillInfo _currentSkill;
 
     [SerializeField] private bool _isPlayer; 
-    protected bool _isSkill = false; //Удар является скиллом или обычной атакой
-    [SerializeField] private string _skillAnimationTrigger = "JumpAttack";//***********Временная переменная**********
+    protected bool _isSkill = false; //РЈРґР°СЂ СЏРІР»СЏРµС‚СЃСЏ СЃРєРёР»Р»РѕРј РёР»Рё РѕР±С‹С‡РЅРѕР№ Р°С‚Р°РєРѕР№
+    [SerializeField] private string _skillAnimationTrigger = "JumpAttack";//***********Р’СЂРµРјРµРЅРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ**********
 
-    private BattleData _battleData; //ScriptableObject с данными битвы
+    private BattleData _battleData; //ScriptableObject СЃ РґР°РЅРЅС‹РјРё Р±РёС‚РІС‹
     protected Animator _animator;
     private MobAudio _mobAudio;
     private Characteristics _characteristics; public Characteristics Characteristics { get { return _characteristics; } } 
@@ -50,19 +50,19 @@ public class BattleMob : MonoBehaviour
         CurrentHp = _characteristics.MaxHp;
     }
 
-    public void CheckHit() //Проверка, попадает удар по противнику, или нет. Вызывается в анимации до нанесения урона
+    public void CheckHit() //РџСЂРѕРІРµСЂРєР°, РїРѕРїР°РґР°РµС‚ СѓРґР°СЂ РїРѕ РїСЂРѕС‚РёРІРЅРёРєСѓ, РёР»Рё РЅРµС‚. Р’С‹Р·С‹РІР°РµС‚СЃСЏ РІ Р°РЅРёРјР°С†РёРё РґРѕ РЅР°РЅРµСЃРµРЅРёСЏ СѓСЂРѕРЅР°
     {
         BattleController.S.CheckHit(CalculateDamage(), !_isPlayer);
     }
 
-    public void DealDamage() //Непосредственное нанесение урона. Вызывается в анимации
+    public void DealDamage() //РќРµРїРѕСЃСЂРµРґСЃС‚РІРµРЅРЅРѕРµ РЅР°РЅРµСЃРµРЅРёРµ СѓСЂРѕРЅР°. Р’С‹Р·С‹РІР°РµС‚СЃСЏ РІ Р°РЅРёРјР°С†РёРё
     {
         if (_battleData.TypeOfCurrentHit == TypeOfHit.critical || _battleData.TypeOfCurrentHit == TypeOfHit.simple)
             _mobAudio.PlayHit();
         BattleController.CompleteHitEvent.Invoke(CalculateDamage(), !_isPlayer);
     } 
 
-    public virtual void UseSkill(int skillNumber) //Использование навыка
+    public virtual void UseSkill(int skillNumber) //РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ РЅР°РІС‹РєР°
     {
         _isSkill = true;
         _animator.SetTrigger(_skillAnimationTrigger);
@@ -81,7 +81,7 @@ public class BattleMob : MonoBehaviour
         _mobAudio.PlayBlock();
     }
 
-    public void GetDamage(int damage) //Получение урона
+    public void GetDamage(int damage) //РџРѕР»СѓС‡РµРЅРёРµ СѓСЂРѕРЅР°
     {
         CurrentHp -= damage;
         if (CurrentHp > 0)
@@ -97,19 +97,19 @@ public class BattleMob : MonoBehaviour
             _animator.SetTrigger("Death");
             _mobAudio.PlayGetDamage();
             CurrentHp = 0;
-            BattleController.S.FinishFight(!_isPlayer); //****************Изменить, когда появится несколько соперников**********************
+            BattleController.S.FinishFight(!_isPlayer); //****************РР·РјРµРЅРёС‚СЊ, РєРѕРіРґР° РїРѕСЏРІРёС‚СЃСЏ РЅРµСЃРєРѕР»СЊРєРѕ СЃРѕРїРµСЂРЅРёРєРѕРІ**********************
         }
     }
 
-    public int CalculateDamage() //Сдесь будут учитываться все бафы и дебафы урона
+    public int CalculateDamage() //РЎРґРµСЃСЊ Р±СѓРґСѓС‚ СѓС‡РёС‚С‹РІР°С‚СЊСЃСЏ РІСЃРµ Р±Р°С„С‹ Рё РґРµР±Р°С„С‹ СѓСЂРѕРЅР°
     {
         int damage = Random.Range(_characteristics.TotalMinDamage, _characteristics.TotalMaxDamage + 1);
-        //Добавляем модификаторы от блока и крита
+        //Р”РѕР±Р°РІР»СЏРµРј РјРѕРґРёС„РёРєР°С‚РѕСЂС‹ РѕС‚ Р±Р»РѕРєР° Рё РєСЂРёС‚Р°
         if (_battleData.TypeOfCurrentHit == TypeOfHit.blocked || _battleData.TypeOfCurrentHit == TypeOfHit.criticalBlocked) damage = damage / 2;
         if (_battleData.TypeOfCurrentHit == TypeOfHit.critical || _battleData.TypeOfCurrentHit == TypeOfHit.criticalBlocked) damage = (int)(damage * 1.75f);
-        //Добавляем модификатор от пробивания и защиты
+        //Р”РѕР±Р°РІР»СЏРµРј РјРѕРґРёС„РёРєР°С‚РѕСЂ РѕС‚ РїСЂРѕР±РёРІР°РЅРёСЏ Рё Р·Р°С‰РёС‚С‹
         damage = (int)(damage * _battleData.PenetrationMultiplier);
-        //Добавляем модификаторы от супер-ударов
+        //Р”РѕР±Р°РІР»СЏРµРј РјРѕРґРёС„РёРєР°С‚РѕСЂС‹ РѕС‚ СЃСѓРїРµСЂ-СѓРґР°СЂРѕРІ
         if (_isSkill)
         {
             if (_currentSkill.EffectName == "IncreaseDamage") 
@@ -119,7 +119,7 @@ public class BattleMob : MonoBehaviour
         return damage;
     }    
 
-    public void MakeSimpleHit(HitDirection direc) //Обычный удар
+    public void MakeSimpleHit(HitDirection direc) //РћР±С‹С‡РЅС‹Р№ СѓРґР°СЂ
     {        
         _isSkill = false;
         if (direc == HitDirection.up)

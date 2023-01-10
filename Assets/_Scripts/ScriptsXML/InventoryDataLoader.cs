@@ -13,7 +13,7 @@ public class InventoryDataLoader : MonoBehaviour
         _path = Application.dataPath + "/StreamingAssets/Data/InventoryData.xml";
     }
 
-    public EquipmentItemData[] GetEquipment() //Возвращает весь список предметов экипировки
+    public EquipmentItemData[] GetEquipment() //Р’РѕР·РІСЂР°С‰Р°РµС‚ РІРµСЃСЊ СЃРїРёСЃРѕРє РїСЂРµРґРјРµС‚РѕРІ СЌРєРёРїРёСЂРѕРІРєРё
     {
         _inventoryDataXml = new XmlDocument();
         _inventoryDataXml.Load(_path);

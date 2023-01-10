@@ -30,7 +30,7 @@ public class HitsPresenter : MonoBehaviour
             tmp.gameObject.SetActive(false);
     }
 
-    void FixedUpdate() //Передвигаем все активные тексты и отключаем те, у которых закончился срок жизни
+    void FixedUpdate() //РџРµСЂРµРґРІРёРіР°РµРј РІСЃРµ Р°РєС‚РёРІРЅС‹Рµ С‚РµРєСЃС‚С‹ Рё РѕС‚РєР»СЋС‡Р°РµРј С‚Рµ, Сѓ РєРѕС‚РѕСЂС‹С… Р·Р°РєРѕРЅС‡РёР»СЃСЏ СЃСЂРѕРє Р¶РёР·РЅРё
     {
         for (int i = 0; i < _damageTexts.Length; i++)
         {
@@ -62,44 +62,44 @@ public class HitsPresenter : MonoBehaviour
 
         if (_battleData.TypeOfCurrentHit == TypeOfHit.miss)
         {
-            //Устанавливаем цвет 
+            //РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј С†РІРµС‚ 
             newText.color = Color.green;
             newText.outlineColor = Color.green;
-            //Устанавливаем значение
-            newText.text = "Уворот";
+            //РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј Р·РЅР°С‡РµРЅРёРµ
+            newText.text = "РЈРІРѕСЂРѕС‚";
         }
         else if(_battleData.TypeOfCurrentHit == TypeOfHit.blocked)
         {
-            //Устанавливаем цвет 
+            //РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј С†РІРµС‚ 
             newText.color = Color.blue;
             newText.outlineColor = Color.blue;
-            //Устанавливаем значение
-            newText.text = "Блок\n" + damage.ToString();
+            //РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј Р·РЅР°С‡РµРЅРёРµ
+            newText.text = "Р‘Р»РѕРє\n" + damage.ToString();
         }
         else if (_battleData.TypeOfCurrentHit == TypeOfHit.criticalBlocked)
         {
             newText.color = Color.white;
             newText.outlineColor = Color.white;
-            string t = "<color=blue>Блок</color>\n" + "<color=red>" + damage + "</color>";
+            string t = "<color=blue>Р‘Р»РѕРє</color>\n" + "<color=red>" + damage + "</color>";
             newText.text = t;
         }
         else if (_battleData.TypeOfCurrentHit == TypeOfHit.critical)
         {
-            //Устанавливаем цвет 
+            //РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј С†РІРµС‚ 
             newText.color = Color.red;
             newText.outlineColor = Color.red;
-            //Устанавливаем значение
+            //РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј Р·РЅР°С‡РµРЅРёРµ
             newText.text = damage.ToString();
         }
         else
         {
-            //Устанавливаем цвет 
+            //РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј С†РІРµС‚ 
             newText.color = Color.white;
             newText.outlineColor = Color.white;            
-            //Устанавливаем значение
+            //РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј Р·РЅР°С‡РµРЅРёРµ
             newText.text = damage.ToString();
         }
-        //Устанавливаем позицию
+        //РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј РїРѕР·РёС†РёСЋ
         if (!forPlayer)
         {
             newText.rectTransform.position = new Vector3(_enemySpavnPoinTrans.position.x + Random.Range(-_xOffset, _xOffset),
